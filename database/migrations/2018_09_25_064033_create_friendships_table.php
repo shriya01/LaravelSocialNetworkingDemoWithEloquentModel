@@ -14,7 +14,10 @@ class CreateFriendShipsTable extends Migration
     public function up()
     {
         Schema::create('friendships', function (Blueprint $table) {
-            $table->increments('id');
+         $table->increments('id');
+            $table->morphs('sender');
+            $table->morphs('recipient');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateFriendShipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('friend_ships');
+        Schema::dropIfExists('friendships');
     }
 }

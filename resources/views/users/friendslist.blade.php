@@ -18,6 +18,7 @@
 		</div>
 	</div>
 </div>
+<?php print_r($user_info); ?>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-5">

@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Friendship;
+use App\User;
 class UserController extends Controller
 {
-	/**
-	 * [getFriendList description]
-	 * @return [type] [description]
-	 */
+    /**
+     * [getFriendList description]
+     * @return [type] [description]
+     */
     public function getFriendList()
     {
-    	return view('users.friendslist');
+        $friendship = Friendship::all()->where('status', 1)->toArray();
+        foreach ($friendship as $friendship) {
+            $recipient_id = $friendship['recipient_id'];
+            $data['user_info'] = User::find($recipient_id)->toArray();
+        }
+        return view('users.friendslist',$data);
     }
     /**
      * [showPendingRequests description]
@@ -29,6 +35,5 @@ class UserController extends Controller
     public function friendSuggestionList()
     {
         return view('users.friendsuggestionlist');
-
     }
 }

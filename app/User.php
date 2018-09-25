@@ -28,6 +28,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * [sendPasswordResetNotification description]
+     * @param  [type] $token [description]
+     * @return [type]        [description]
+     */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));

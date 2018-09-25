@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('friendlist', ['as'=>'friendlist','uses'=>'UserController@getFriendList']);
-Route::get('pendingrequests', ['as'=>'pendingrequests','uses'=>'UserController@showPendingRequests']);
-Route::get('friendSuggestionList', ['as'=>'pendingrequests','uses'=>'UserController@friendSuggestionList']);
-Route::get('viewposts', ['as'=>'viewposts','uses'=>'PostController@viewUserPosts']);
+Route::get('friendlist', ['as'=>'friendlist','uses'=>'UserController@getFriendList'])->middleware('verified');
+Route::get('pendingrequests', ['as'=>'pendingrequests','uses'=>'UserController@showPendingRequests'])->middleware('verified');
+Route::get('friendSuggestionList', ['as'=>'pendingrequests','uses'=>'UserController@friendSuggestionList'])->middleware('verified');
+Route::get('viewposts', ['as'=>'viewposts','uses'=>'PostController@viewUserPosts'])->middleware('verified');

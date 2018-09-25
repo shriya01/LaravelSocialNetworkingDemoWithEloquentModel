@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function showPendingRequests()
     {
-    	echo "show pending requests";
+        return view('users.pendingrequests');
     }
     /**
      * [friendSuggestionList description]
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function friendSuggestionList()
     {
-    	    	echo "friend suggestion list";
+        return view('users.friendsuggestionlist');
 
     }
 }

@@ -8,6 +8,6 @@ class PostController extends Controller
 {
     public function viewUserPosts()
     {
-    	echo "user posts";
+        return view('posts.viewposts');
     }
 }

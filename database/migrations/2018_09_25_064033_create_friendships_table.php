@@ -13,7 +13,7 @@ class CreateFriendShipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('friend_ships', function (Blueprint $table) {
+        Schema::create('friendships', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });

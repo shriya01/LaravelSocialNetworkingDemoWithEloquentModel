@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes(['verify' => true]);
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('friendlist', ['as'=>'friendlist','uses'=>'UserController@getFriendList']);
+Route::get('pendingrequests', ['as'=>'pendingrequests','uses'=>'UserController@showPendingRequests']);
+Route::get('friendSuggestionList', ['as'=>'pendingrequests','uses'=>'UserController@friendSuggestionList']);
+Route::get('viewposts', ['as'=>'viewposts','uses'=>'PostController@viewUserPosts']);
